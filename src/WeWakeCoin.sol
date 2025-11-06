@@ -34,7 +34,7 @@ contract WeWakeCoin is ERC20, ERC20Permit, ERC20Votes, Ownable {
         }
     }
 
-    function openBurn(uint256 amount) external onlyOwner {
+    function openBurn(uint256 amount) external {
         require(_burnPossibleFromBlock == 0, "Burn process already in timelock phase");
         require(amount != 0, "Amount to burn cannot be 0");
         require(amount <= balanceOf(msg.sender), "Not enough tokens to burn");
